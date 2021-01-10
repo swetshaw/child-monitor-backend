@@ -70,6 +70,7 @@ const getGirlsLFA = (req, res) => {
                 let month = [];
                 let minus_three_sd = [];
                 let minus_two_sd = [];
+                let median = [];
                 let plus_two_sd = [];
                 let plus_three_sd = [];
                 for (let index = 0; index < data.length; index++) {
@@ -82,6 +83,9 @@ const getGirlsLFA = (req, res) => {
                     const minus_two_sd_ = data[index].minus_2sd;
                     minus_two_sd.push(minus_two_sd_);
 
+                    const median_ = data[index].median;
+                    median.push(median_);
+
                     const plus_two_sd_ = data[index].sd2;
                     plus_two_sd.push(plus_two_sd_);
 
@@ -93,6 +97,7 @@ const getGirlsLFA = (req, res) => {
                     'month': month,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
@@ -114,6 +119,7 @@ const getGirlsLFA = (req, res) => {
                 let month = [];
                 let minus_three_sd = [];
                 let minus_two_sd = [];
+                let median = [];
                 let plus_two_sd = [];
                 let plus_three_sd = [];
                 for (let index = 0; index < data.length; index++) {
@@ -126,6 +132,9 @@ const getGirlsLFA = (req, res) => {
                     const minus_two_sd_ = data[index].minus_2sd;
                     minus_two_sd.push(minus_two_sd_);
 
+                    const median_ = data[index].median;
+                    median.push(median_);
+
                     const plus_two_sd_ = data[index].sd2;
                     plus_two_sd.push(plus_two_sd_);
 
@@ -137,6 +146,7 @@ const getGirlsLFA = (req, res) => {
                     'month': month,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
+                    'median': median_,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
