@@ -5,6 +5,7 @@ const app = express()
 const port = 3000
 //const db = require('./config/keys').pool;
 const getc = require('./routes/api/child');
+const geti = require('./routes/api/indicators');
 
 
 app.use(bodyParser.json())
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 app.get("/api/child/id/:child_id", getc.getChildById);
 app.get("/api/child/all", getc.getAllChildren);
 app.get("/api/awc/:awc_id", getc.getChildByAWC);
+app.get("/api/indicators/wfh/:gender/:flag", geti.getWFH);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
