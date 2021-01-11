@@ -146,7 +146,7 @@ const getGirlsLFA = (req, res) => {
                     'month': month,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
-                    'median': median_,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
@@ -250,7 +250,7 @@ const getBoysLFA = (req, res) => {
                     'month': month,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
-                    'median': median_,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
