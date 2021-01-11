@@ -45,7 +45,7 @@ const getchildStatusbyId = (req, res) => {
     .then(() =>{
         res.status(200).json({
             isStunted: isStunted,
-            child_data: data
+            child_data: child_data.rows
         });
     })
 
