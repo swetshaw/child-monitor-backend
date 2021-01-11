@@ -12,8 +12,10 @@ const getChildById = (req, res) => {
                 child: "Child not found"
             })
         }
-        else
+        else{
+            
             res.status(200).json(results.rows);
+        }
     });
 };
 
