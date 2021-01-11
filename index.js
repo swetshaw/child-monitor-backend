@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/child/id/:child_id", getc.getChildById);
+app.get("/api/child/status/:child_id/", getc.getchildStatusbyId);
 app.get("/api/child/all", getc.getAllChildren);
 app.get("/api/awc/:awc_id", getc.getChildByAWC);
 app.get("/api/indicators/wfh/girl/:flag", geti.getWFH);

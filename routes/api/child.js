@@ -1,23 +1,79 @@
 const pool = require("../../config/keys").pool;
 
+const getchildStatusbyId = (req, res) => {
+    child_id_ =req.params.child_id;
+
+    pool.query('SELECT * FROM child_data WHERE child_id = $1', [child_id_])
+    .then(rows => {
+        child_data = rows;
+        age = child_data.rows[child_data.rows.length-1].age;
+        gender = child_data.rows[child_data.rows.length-1].gender;
+        if(age<24 && gender=='Girl'){
+            return pool.query('SELECT minus_2sd FROM lfa_girls_0_2_zscores WHERE month = $1', [age]);
+        }
+        else if (age>24 && gender=='Girl'){
+            return pool.query('SELECT minus_2sd FROM hfa_girls_2_5_zscores WHERE month = $1', [age]);
+        }
+        else if (age<24 && gender=='Boy'){
+            return pool.query('SELECT minus_2sd FROM lfa_boys_0_2_zscores WHERE month = $1', [age]);
+        }
+        else if (age> 24 && gender == 'Boy'){
+            return pool.query('SELECT minus_2sd FROM hfa_boys_2_5_zscores WHERE month = $1', [age]);
+        }
+        
+    })
+    .then(rows => {
+        stunting_status = rows;
+        return stunting_status
+    })
+    .then(() => {
+        data = child_data.rows[child_data.rows.length-1];
+        //let gender = data.gender;
+        // let age = data.age;
+        // let weight = data.weight;
+        let height = data.height;
+        let minus_2sd = stunting_status.rows[0].minus_2sd;
+
+        if (height < minus_2sd){
+            isStunted = "Stunted";
+        }
+        else if(height > minus_2sd){
+            isStunted = "Healthy";
+        }
+        
+    })
+    .then(() =>{
+        res.status(200).json({
+            isStunted: isStunted,
+            child_data: data
+        });
+    })
+
+    
+
+
+}
+
+
 const getChildById = (req, res) => {
-    console.log("Inside get child");
+    
     child_id_ = req.params.child_id;
-    console.log(child_id_)
+    
     //sno = req.body.sno;
     pool.query('SELECT * FROM child_data WHERE child_id = $1', [child_id_], (error, results) => {
+        
         if (error){
-            console.log(error)
+            
             res.status(400).json({
                 child: "Child not found"
             })
         }
         else{
-            
             res.status(200).json(results.rows);
-        }
-    });
-};
+            }     
+        });
+    }
+
 
 const getAllChildren = (req, res) => {
     pool.query('SELECT DISTINCT child_id FROM child_data ORDER BY sno ASC', (err, results) => {
@@ -63,5 +119,6 @@ module.exports = {
     getChildById,
     getAllChildren,
     getChildByAWC,
+    getchildStatusbyId
 }
 
