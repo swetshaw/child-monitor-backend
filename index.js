@@ -25,6 +25,7 @@ app.get("/api/child/all", getc.getAllChildren);
 app.get("/api/awc/:awc_id", getc.getChildByAWC);
 app.get("/api/indicators/wfh/girl/:flag", geti.getWFH);
 app.get("/api/indicators/lfa/girl/:flag", geti.getGirlsLFA);
+app.get("/api/indicators/lfa/boy/:flag", geti.getBoysLFA);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
