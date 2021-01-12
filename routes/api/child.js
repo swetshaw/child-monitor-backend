@@ -34,7 +34,7 @@ const getchildStatusbyId = (req, res) => {
         let height = data.height;
         let minus_2sd = stunting_status.rows[0].minus_2sd;
 
-        if (height < minus_2sd){
+        if (height <= minus_2sd){
             isStunted = "Stunted";
         }
         else if(height > minus_2sd){
