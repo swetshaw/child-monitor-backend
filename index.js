@@ -25,6 +25,7 @@ app.get("/api/child/status/:child_id/", getc.getchildStatusbyId);
 app.get("/api/child/all", getc.getAllChildren);
 app.get("/api/awc/:awc_id", getc.getChildByAWC);
 app.get("/api/indicators/wfh/girl/:flag", geti.getGirlsWFH);
+app.get("/api/indicators/wfh/boy/:flag", geti.getBoysWFH);
 app.get("/api/indicators/lfa/girl/:flag", geti.getGirlsLFA);
 app.get("/api/indicators/lfa/boy/:flag", geti.getBoysLFA);
 app.get("/api/indicators/wfa/girl", geti.getGirlsWFA);
