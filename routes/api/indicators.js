@@ -46,6 +46,7 @@ const getGirlsWFH = (req, res) => {
                     'length': length,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
@@ -93,6 +94,7 @@ const getGirlsWFH = (req, res) => {
                     'length': length,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
@@ -149,6 +151,7 @@ const getBoysWFH = (req, res) => {
                     'length': length,
                     'minus_three_sd': minus_three_sd,
                     'minus_two_sd': minus_two_sd,
+                    'median': median,
                     'plus_two_sd': plus_two_sd,
                     'plus_three_sd': plus_three_sd
                 })
