@@ -5,4 +5,4 @@
 ## Tech Stack
 - Express
 - Node
-- Postgres SQL
+- PostgreSQL
